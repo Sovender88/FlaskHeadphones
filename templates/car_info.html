@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="jumbotron">
+          <h1 class="display-4">{{ car[1] }}</h1>
+          <p class="lead">Стоимость: {{ car[2] }}₽</p>
+          <hr class="my-4">
+            <p>Цвет: {{ car[4] }}</p>
+            <p>Место продажи: {{ dealer }}</p>
+            <p>Тип товара: {{ car[3] }}</p>
+        </div>
+        {% if isAdmin %}
+            <a href="/delete_car/{{car_id}}"><button type="button" class="btn btn-primary">Удалить</button>
+        {% else %}
+             <a href="/buy_car"><button type="button" class="btn btn-primary">Купить</button>
+        {% endif %}
+            <a href="/index"><button type="button" class="btn btn-outline-info">Назад</button>
+{% endblock %}
